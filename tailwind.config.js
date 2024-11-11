@@ -7,6 +7,9 @@ export default {
         syne: ["Syne", "sans-serif"],
         inter: ["Inter", "sans-serif"],
       },
+      height: {
+        screen: "100dvh",
+      },
     },
   },
   plugins: [],
