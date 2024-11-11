@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header className="flex justify-between">
-      <Link to="/">The Surf Shack</Link>
+      <Link to="/">Stone Pizza Company</Link>
       <p>Cam Poole</p>
     </header>
   );
