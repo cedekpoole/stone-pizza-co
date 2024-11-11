@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SearchOrder from "../features/order/SearchOrder";
 
 function Header() {
   return (
@@ -6,7 +7,10 @@ function Header() {
       <Link to="/">
         <img src="./StonePizza.svg" alt="logo" className="w-32 lg:w-40" />
       </Link>
-      <p>Cam Poole</p>
+      <div className="flex gap-4 items-center">
+        <SearchOrder />
+        <p>Cam Poole</p>
+      </div>
     </header>
   );
 }
