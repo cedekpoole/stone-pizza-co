@@ -1,6 +1,8 @@
+import { useLoaderData } from "react-router-dom";
 import { getMenu } from "../../services/apiMenu";
 
 function Menu() {
+  const menu = useLoaderData();
   return <div className="text-2xl">MENU</div>;
 }
 
