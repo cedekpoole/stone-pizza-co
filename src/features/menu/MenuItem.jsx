@@ -17,7 +17,7 @@ const MenuItem = ({ pizza }) => {
       {/* Content */}
       <div className="p-2 md:p-6 space-y-4">
         {/* Pizza Name */}
-        <h2 className="text-lg md:text-2xl font-bold">{name}</h2>
+        <h2 className="text-lg md:text-xl font-bold font-syne">{name}</h2>
 
         {/* Ingredients */}
         <p className="text-gray-400 text-sm">{ingredients.join(", ")}</p>

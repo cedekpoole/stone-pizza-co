@@ -9,7 +9,7 @@ function AppLayout() {
   const isLoading = navigation.state === "loading";
 
   return (
-    <div className="min-h-[calc(100vh-4rem)]">
+    <div className="min-h-[calc(100vh-4rem)] font-inter">
       <Header />
       {isLoading ? (
         <Loader fullscreen={true} />

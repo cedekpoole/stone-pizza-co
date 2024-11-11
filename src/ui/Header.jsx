@@ -9,7 +9,7 @@ function Header() {
       </Link>
       <div className="flex gap-4 items-center">
         <SearchOrder />
-        <p>Cam Poole</p>
+        <p className="font-syne">CEDEKPOOLE</p>
       </div>
     </header>
   );
