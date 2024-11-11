@@ -1,7 +1,6 @@
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 import { createOrder } from "../../services/apiMenu";
 import Logo from "../../assets/StonePizza.svg";
-import Input from "../../ui/Input";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -48,20 +47,20 @@ function CreateOrder() {
         <Form method="POST" className="flex flex-col gap-6">
           <div className="flex gap-4 text-sm items-center">
             <label>FIRST NAME</label>
-            <Input type={"text"} name={"customer"} />
+            <input type="text" name="customer" className="input" />
           </div>
 
           <div className="flex gap-4 text-sm items-center">
             <label>PHONE NUMBER</label>
             <div>
-              <Input type={"tel"} name="phone" />
+              <input type="tel" name="phone" className="input" />
             </div>
           </div>
           {formErrors?.phone && <p className="text-sm">* {formErrors.phone}</p>}
           <div className="flex gap-4 text-sm items-center">
             <label>ADDRESS</label>
             <div>
-              <Input type={"text"} name={"address"} />
+              <input type="text" name="address" className="input" />
             </div>
           </div>
 
@@ -70,6 +69,8 @@ function CreateOrder() {
               type="checkbox"
               name="priority"
               id="priority"
+              className="w-6 h-6 accent-[#373c4b] transition-all
+              duration-300 focus:outline-none focus:ring focus:ring-[#494f62]"
               // value={withPriority}
               // onChange={(e) => setWithPriority(e.target.checked)}
             />

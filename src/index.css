@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .input {
+    @apply p-1 rounded-full bg-[#f1f1f1] text-[#242424] transition-all
+    duration-300 focus:outline-none focus:ring focus:ring-offset-1 focus:ring-[#494f62];
+  }
+}
+
 :root {
   background: linear-gradient(to bottom right, #73798d, #373c4b);
   padding-bottom: 4rem;
