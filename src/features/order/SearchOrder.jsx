@@ -18,9 +18,9 @@ function SearchOrder() {
         value={query}
         placeholder="Search order #"
         onChange={(e) => setQuery(e.target.value)}
-        className="px-2 py-1 bg-[#1c1e25] text-white rounded-full
+        className="px-2 py-1 bg-[#1c1e25] text-white rounded-full w-40 sm:w-56
         transition-all duration-500 focus:outline-none focus:ring focus:ring-offset-2 
-        focus:bg-[#373c4b] focus:ring-[#373c4b] focus:w-64 sm:w-56"
+        focus:bg-[#373c4b] focus:ring-[#373c4b] focus:w-48 focus:sm:w-64"
       />
     </form>
   );

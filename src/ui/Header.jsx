@@ -4,13 +4,13 @@ import Logo from "../assets/StonePizza.svg";
 
 function Header() {
   return (
-    <header className="flex items-center bg-gradient-to-r to-[#494f62] from-[#1c1e25] py-3 lg:px-12 justify-between mb-9 text-[#f1f1f1]">
+    <header className="flex items-center bg-gradient-to-r to-[#494f62] from-[#1c1e25] py-3 px-3 lg:px-16 justify-between mb-9 text-[#f1f1f1]">
       <Link to="/">
-        <img src={Logo} alt="logo" className="w-32 lg:w-36" />
+        <img src={Logo} alt="logo" className="w-32 lg:w-40" />
       </Link>
       <div className="flex gap-4 items-center">
         <SearchOrder />
-        <p className="font-syne">CEDEKPOOLE</p>
+        <p className="font-syne text-sm hidden sm:block">CEDEKPOOLE</p>
       </div>
     </header>
   );
