@@ -1,5 +1,18 @@
+import { Link } from "react-router-dom";
+
 function Cart() {
-  return <div className="text-2xl">CART</div>;
+  return (
+    <div>
+      <Link to="/menu">&larr; Back to menu</Link>
+
+      <h2>Your cart, %NAME%</h2>
+
+      <div className="flex gap-4">
+        <Link to="/order/new">Order pizzas</Link>
+        <button>Clear cart</button>
+      </div>
+    </div>
+  );
 }
 
 export default Cart;
