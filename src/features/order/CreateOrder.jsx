@@ -1,5 +1,6 @@
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 import { createOrder } from "../../services/apiMenu";
+import Logo from "../../assets/StonePizza.svg";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -39,47 +40,69 @@ function CreateOrder() {
   const cart = fakeCart;
 
   return (
-    <div>
-      <h2>Ready to order?</h2>
+    <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="mt-5 col-span-1 mx-auto">
+        <h2 className="font-bold font-syne text-2xl mb-7">Ready to order?</h2>
 
-      <Form method="POST">
-        <div>
-          <label>First Name</label>
-          <input type="text" name="customer" required />
-        </div>
-
-        <div>
-          <label>Phone number</label>
-          <div>
-            <input type="tel" name="phone" required />
+        <Form method="POST" className="flex flex-col gap-6">
+          <div className="flex gap-4 text-sm items-center">
+            <label>FIRST NAME</label>
+            <input
+              type="text"
+              name="customer"
+              required
+              className="p-1 rounded-md text-[#242424]"
+            />
           </div>
-          {formErrors?.phone && <p>{formErrors.phone}</p>}
-        </div>
 
-        <div>
-          <label>Address</label>
-          <div>
-            <input type="text" name="address" required />
+          <div className="flex gap-4 text-sm items-center">
+            <label>PHONE NUMBER</label>
+            <div>
+              <input
+                type="tel"
+                name="phone"
+                required
+                className="p-1 rounded-md text-[#242424]"
+              />
+            </div>
+            {formErrors?.phone && <p>{formErrors.phone}</p>}
           </div>
-        </div>
 
-        <div>
-          <input
-            type="checkbox"
-            name="priority"
-            id="priority"
-            // value={withPriority}
-            // onChange={(e) => setWithPriority(e.target.checked)}
-          />
-          <label htmlFor="priority">Want to yo give your order priority?</label>
-        </div>
-        <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-        <div>
-          <button disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Order now"}
-          </button>
-        </div>
-      </Form>
+          <div className="flex gap-4 text-sm items-center">
+            <label>ADDRESS</label>
+            <div>
+              <input
+                type="text"
+                name="address"
+                required
+                className="p-1 rounded-md text-[#242424]"
+              />
+            </div>
+          </div>
+
+          <div className="flex gap-4 text-md items-center">
+            <input
+              type="checkbox"
+              name="priority"
+              id="priority"
+              // value={withPriority}
+              // onChange={(e) => setWithPriority(e.target.checked)}
+            />
+            <label htmlFor="priority">Want to give your order priority?</label>
+          </div>
+          <input type="hidden" name="cart" value={JSON.stringify(cart)} />
+          <div>
+            <button disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Order now"}
+            </button>
+          </div>
+        </Form>
+      </div>
+      <img
+        src={Logo}
+        alt="Logo"
+        className="w-full h-full p-10 col-span-2 object-contain mx-auto hidden md:block"
+      />
     </div>
   );
 }
