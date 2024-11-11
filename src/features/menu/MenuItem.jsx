@@ -29,7 +29,7 @@ const MenuItem = ({ pizza }) => {
               soldOut ? "text-gray-500 line-through" : "text-green-400"
             }`}
           >
-            ${price.toFixed(2)}
+            £{price.toFixed(2)}
           </span>
           {!soldOut && (
             <button className="bg-green-500 hover:bg-green-600 text-white text-sm px-2.5 py-1.5 md:px-4 md:py-2 rounded-md">
