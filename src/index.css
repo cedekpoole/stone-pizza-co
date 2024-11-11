@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* can create reusable classes via the @apply directive - just place 'input' in className */
 @layer components {
   .input {
     @apply p-1 rounded-full bg-[#f1f1f1] text-[#242424] transition-all
