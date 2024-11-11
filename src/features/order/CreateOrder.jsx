@@ -65,9 +65,8 @@ function CreateOrder() {
                 className="p-1 rounded-md text-[#242424]"
               />
             </div>
-            {formErrors?.phone && <p>{formErrors.phone}</p>}
           </div>
-
+          {formErrors?.phone && <p className="text-sm">* {formErrors.phone}</p>}
           <div className="flex gap-4 text-sm items-center">
             <label>ADDRESS</label>
             <div>
@@ -92,7 +91,12 @@ function CreateOrder() {
           </div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
           <div>
-            <button disabled={isSubmitting}>
+            <button
+              disabled={isSubmitting}
+              className="bg-[#494f62] px-4 py-1 rounded-full
+               hover:bg-[#373c4b] tracking-wide font-syne transition-colors 
+               duration-200 focus:outline-none focus:ring focus:ring-offset-2 focus:bg-[#373c4b] focus:ring-[#373c4b]"
+            >
               {isSubmitting ? "Submitting..." : "Order now"}
             </button>
           </div>
