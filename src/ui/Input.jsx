@@ -11,8 +11,8 @@ function Input({ type, name }) {
       type={type}
       name={name}
       required
-      className="p-1 rounded-md text-[#242424] transition-all
-      duration-300 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-[#494f62]"
+      className="p-1 rounded-md bg-[#f1f1f1] text-[#242424] transition-all
+      duration-300 focus:outline-none focus:ring focus:ring-offset-1 focus:ring-[#494f62]"
     />
   );
 }
