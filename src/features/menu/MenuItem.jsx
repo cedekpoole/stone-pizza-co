@@ -4,7 +4,7 @@ const MenuItem = ({ pizza }) => {
   const { name, unitPrice: price, ingredients, soldOut, imageUrl } = pizza;
 
   return (
-    <div className="relative bg-[#3a3f50] text-[#f1f1f1] rounded-lg shadow-lg overflow-hidden grid grid-cols-2 gap-4 items-center transition-transform transform hover:scale-105">
+    <div className="max-h-44 relative bg-[#3a3f50] text-[#f1f1f1] rounded-lg shadow-lg overflow-hidden grid grid-cols-2 gap-4 transition-transform transform hover:scale-105">
       {/* Pizza Image */}
       <div className={`h-full ${soldOut ? "opacity-50" : ""}`}>
         <img
