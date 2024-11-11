@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 :root {
-  background-color: #494f62;
+  background: linear-gradient(to bottom right, #73798d, #373c4b);
+  padding-bottom: 4rem;
 }

@@ -4,7 +4,7 @@ const MenuItem = ({ pizza }) => {
   const { name, unitPrice: price, ingredients, soldOut, imageUrl } = pizza;
 
   return (
-    <div className="relative bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-4 items-center transition-transform transform hover:scale-105">
+    <div className="relative bg-[#3a3f50] text-[#f1f1f1] rounded-lg shadow-lg overflow-hidden grid grid-cols-2 gap-4 items-center transition-transform transform hover:scale-105">
       {/* Pizza Image */}
       <div className={`h-full ${soldOut ? "opacity-50" : ""}`}>
         <img
@@ -15,9 +15,9 @@ const MenuItem = ({ pizza }) => {
       </div>
 
       {/* Content */}
-      <div className="p-6 space-y-4">
+      <div className="p-2 md:p-6 space-y-4">
         {/* Pizza Name */}
-        <h2 className="text-2xl font-bold">{name}</h2>
+        <h2 className="text-lg md:text-2xl font-bold">{name}</h2>
 
         {/* Ingredients */}
         <p className="text-gray-400 text-sm">{ingredients.join(", ")}</p>
@@ -25,14 +25,14 @@ const MenuItem = ({ pizza }) => {
         {/* Price and Button */}
         <div className="flex items-center justify-between">
           <span
-            className={`text-2xl font-bold ${
+            className={`text-md md:text-2xl font-bold ${
               soldOut ? "text-gray-500 line-through" : "text-green-400"
             }`}
           >
             ${price.toFixed(2)}
           </span>
           {!soldOut && (
-            <button className="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-md">
+            <button className="bg-green-500 hover:bg-green-600 text-white text-sm px-2.5 py-1.5 md:px-4 md:py-2 rounded-md">
               Add to Cart
             </button>
           )}

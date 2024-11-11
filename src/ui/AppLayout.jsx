@@ -7,13 +7,14 @@ function AppLayout() {
   const navigation = useNavigation();
 
   const isLoading = navigation.state === "loading";
+
   return (
-    <div className="min-h-screen container mx-auto flex flex-col justify-between">
+    <div className="min-h-[calc(100vh-4rem)]">
       <Header />
       {isLoading ? (
         <Loader fullscreen={true} />
       ) : (
-        <main>
+        <main className="container mx-auto">
           <Outlet />
         </main>
       )}

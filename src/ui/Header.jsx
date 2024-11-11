@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="flex justify-between my-10 text-[#f1f1f1]">
-      <Link to="/">Stone Pizza Company</Link>
+    <header className="flex items-center bg-[#2f3343] py-3 lg:px-12 justify-between mb-9 text-[#f1f1f1]">
+      <Link to="/">
+        <img src="./StonePizza.svg" alt="logo" className="w-32 lg:w-40" />
+      </Link>
       <p>Cam Poole</p>
     </header>
   );

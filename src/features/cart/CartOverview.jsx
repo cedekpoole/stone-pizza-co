@@ -2,12 +2,17 @@ import { Link } from "react-router-dom";
 
 function CartOverview() {
   return (
-    <div className="flex justify-between my-10">
-      <p>
-        <span>3 pizzas</span>
-        <span>£ 30,00</span>
+    <div className="fixed bottom-0 left-0 w-full bg-[#2f3343] text-white px-4 py-3 flex justify-between items-center shadow-lg">
+      <p className="text-sm">
+        <span className="font-semibold">3 pizzas</span>{" "}
+        <span className="ml-2">£30.00</span>
       </p>
-      <Link to="/cart">View cart &rarr;</Link>
+      <Link
+        to="/cart"
+        className="text-green-400 font-semibold hover:text-green-300"
+      >
+        View cart &rarr;
+      </Link>
     </div>
   );
 }
