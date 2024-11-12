@@ -1,7 +1,21 @@
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { addItem } from "../cart/cartSlice";
 
 const MenuItem = ({ pizza }) => {
-  const { name, unitPrice: price, ingredients, soldOut, imageUrl } = pizza;
+  const { id, name, unitPrice: price, ingredients, soldOut, imageUrl } = pizza;
+  const dispatch = useDispatch();
+
+  function handleAddToCart() {
+    const newItem = {
+      pizzaId: id,
+      name,
+      quantity: 1,
+      unitPrice: price,
+      totalPrice: price * 1,
+    };
+    dispatch(addItem(newItem));
+  }
 
   return (
     <div className="relative grid max-h-44 transform grid-cols-8 gap-4 divide-y divide-stone-200 overflow-hidden text-[#f1f1f1]">
@@ -34,7 +48,10 @@ const MenuItem = ({ pizza }) => {
             £{price.toFixed(2)}
           </span>
           {!soldOut && (
-            <button className="rounded-md bg-green-500 px-2.5 py-1.5 font-syne text-sm font-medium uppercase tracking-wide text-white hover:bg-green-600 md:px-4 md:py-2">
+            <button
+              onClick={handleAddToCart}
+              className="rounded-md bg-green-500 px-2.5 py-1.5 font-syne text-sm font-medium uppercase tracking-wide text-white hover:bg-green-600 md:px-4 md:py-2"
+            >
               Add to Cart
             </button>
           )}
@@ -58,6 +75,7 @@ MenuItem.propTypes = {
     ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
     soldOut: PropTypes.bool.isRequired,
     imageUrl: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   }).isRequired,
 };
 
