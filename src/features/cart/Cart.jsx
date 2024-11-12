@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import CartItem from "./CartItem";
 import PizzaSlice from "../../assets/pizzaslice.svg";
 import { useSelector } from "react-redux";
+import { getUsername } from "../user/userSlice";
 const fakeCart = [
   {
     pizzaId: 12,
@@ -28,7 +29,7 @@ const fakeCart = [
 ];
 
 function Cart() {
-  const username = useSelector((state) => state.user.username);
+  const username = useSelector(getUsername);
   const cart = fakeCart;
   return (
     <div className="px-4 py-3 md:px-10">
