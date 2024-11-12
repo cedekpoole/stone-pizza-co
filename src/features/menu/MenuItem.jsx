@@ -4,9 +4,9 @@ const MenuItem = ({ pizza }) => {
   const { name, unitPrice: price, ingredients, soldOut, imageUrl } = pizza;
 
   return (
-    <div className="relative grid max-h-52 transform grid-cols-2 gap-4 overflow-hidden rounded-lg bg-[#3a3f50] text-[#f1f1f1] shadow-lg transition-transform hover:scale-105">
+    <div className="relative grid max-h-44 transform grid-cols-8 gap-4 divide-y divide-stone-200 overflow-hidden text-[#f1f1f1]">
       {/* Pizza Image */}
-      <div className={`h-full ${soldOut ? "opacity-50" : ""}`}>
+      <div className={`col-span-2 h-full ${soldOut ? "opacity-40" : ""}`}>
         <img
           src={imageUrl}
           alt={name}
@@ -15,9 +15,11 @@ const MenuItem = ({ pizza }) => {
       </div>
 
       {/* Content */}
-      <div className="space-y-4 p-2 md:p-6">
+      <div className="col-span-6 space-y-3 pt-3">
         {/* Pizza Name */}
-        <h2 className="font-syne text-lg font-bold md:text-xl">{name}</h2>
+        <h2 className="font-syne text-lg font-bold md:text-xl lg:text-2xl">
+          {name}
+        </h2>
 
         {/* Ingredients */}
         <p className="text-sm text-gray-400">{ingredients.join(", ")}</p>
@@ -32,7 +34,7 @@ const MenuItem = ({ pizza }) => {
             £{price.toFixed(2)}
           </span>
           {!soldOut && (
-            <button className="rounded-md bg-green-500 px-2.5 py-1.5 text-sm text-white hover:bg-green-600 md:px-4 md:py-2">
+            <button className="rounded-md bg-green-500 px-2.5 py-1.5 font-syne text-sm font-medium uppercase tracking-wide text-white hover:bg-green-600 md:px-4 md:py-2">
               Add to Cart
             </button>
           )}
@@ -41,7 +43,7 @@ const MenuItem = ({ pizza }) => {
 
       {/* Sold Out Badge */}
       {soldOut && (
-        <div className="absolute right-2 top-2 rounded-md bg-red-600 px-3 py-1 text-sm font-semibold">
+        <div className="absolute bottom-0 right-0 rounded-md bg-red-600 px-3 py-1 font-syne text-sm font-semibold uppercase tracking-wide">
           Sold Out
         </div>
       )}

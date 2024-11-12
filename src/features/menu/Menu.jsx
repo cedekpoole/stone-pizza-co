@@ -10,7 +10,7 @@ function Menu() {
       <h1 className="text-center font-syne text-2xl font-semibold uppercase">
         Menu
       </h1>
-      <ul className="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <ul className="mt-7 flex flex-col gap-4">
         {menu.map((pizza) => (
           <MenuItem key={pizza.id} pizza={pizza} />
         ))}
