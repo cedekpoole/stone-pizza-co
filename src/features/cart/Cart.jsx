@@ -33,7 +33,7 @@ function Cart() {
 
       <div className="mt-6 flex items-center gap-4">
         <Button to="/order/new">Order Pizzas</Button>
-        <Button type="secondary" onClick={dispatch(clearCart())}>
+        <Button type="secondary" onClick={() => dispatch(clearCart())}>
           Clear cart
         </Button>
       </div>

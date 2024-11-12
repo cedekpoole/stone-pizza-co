@@ -50,7 +50,7 @@ const MenuItem = ({ pizza }) => {
           {!soldOut && (
             <button
               onClick={handleAddToCart}
-              className="rounded-md bg-green-500 px-2.5 py-1.5 font-syne text-sm font-medium uppercase tracking-wide text-white hover:bg-green-600 md:px-4 md:py-2"
+              className="rounded-md bg-green-500 px-2.5 py-1.5 font-syne text-sm font-medium uppercase tracking-wide text-white hover:bg-green-600 focus:animate-bounce md:px-4 md:py-2"
             >
               Add to Cart
             </button>
