@@ -7,7 +7,7 @@ function Username() {
     return null;
   }
   return (
-    <div className="hidden text-sm font-semibold uppercase md:block">
+    <div className="hidden text-xs font-semibold uppercase tracking-wide md:block">
       {user}
     </div>
   );
