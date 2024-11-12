@@ -7,7 +7,7 @@
 /* can create reusable classes via the @apply directive - just place 'input' in className */
 @layer components {
   .input {
-    @apply p-1 rounded-full bg-[#f1f1f1] text-[#242424] transition-all
+    @apply p-2 rounded-full bg-[#f1f1f1] text-[#242424] transition-all
     duration-300 focus:outline-none focus:ring focus:ring-offset-1 focus:ring-[#494f62];
   }
 }
