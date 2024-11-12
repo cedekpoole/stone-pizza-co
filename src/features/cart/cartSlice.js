@@ -39,6 +39,9 @@ export const {
 } = cartSlice.actions;
 
 // can cause performance issues in larger apps - can use reselect library to memoize the selector
+
+export const getCart = (state) => state.cart.cart;
+
 export const getTotalCartQuantity = (state) =>
   state.cart.cart.reduce((sum, item) => sum + item.quantity, 0);
 

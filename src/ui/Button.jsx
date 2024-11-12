@@ -6,9 +6,16 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   to: PropTypes.string,
   type: PropTypes.oneOf(["dark", "light", "secondary"]),
+  onClick: PropTypes.func,
 };
 
-function Button({ children, disabled = false, to, type = "light" }) {
+function Button({
+  children,
+  disabled = false,
+  to,
+  type = "light",
+  onClick = () => {},
+}) {
   const base =
     "px-4 py-1 rounded-full tracking-wide font-syne transition-colors duration-200 focus:outline-none focus:ring focus:ring-offset-2 focus:bg-[#373c4b] focus:ring-[#373c4b] disabled:cursor-not-allowed";
 
@@ -25,7 +32,7 @@ function Button({ children, disabled = false, to, type = "light" }) {
       </Link>
     );
   return (
-    <button disabled={disabled} className={styles[type]}>
+    <button onClick={onClick} disabled={disabled} className={styles[type]}>
       {children}
     </button>
   );
