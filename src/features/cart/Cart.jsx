@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import LinkButton from "../../ui/LinkButton";
 import Button from "../../ui/Button";
 
@@ -10,9 +9,7 @@ function Cart() {
       <h2>Your cart, %NAME%</h2>
 
       <div className="flex gap-4">
-        <Link to="/order/new">
-          <Button>Order Pizzas</Button>
-        </Link>
+        <Button to="/order/new">Order Pizzas</Button>
         <button>Clear cart</button>
       </div>
     </div>
