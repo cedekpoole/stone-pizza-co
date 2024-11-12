@@ -2,6 +2,7 @@ import LinkButton from "../../ui/LinkButton";
 import Button from "../../ui/Button";
 import CartItem from "./CartItem";
 import PizzaSlice from "../../assets/pizzaslice.svg";
+import { useSelector } from "react-redux";
 const fakeCart = [
   {
     pizzaId: 12,
@@ -27,28 +28,29 @@ const fakeCart = [
 ];
 
 function Cart() {
+  const username = useSelector((state) => state.user.username);
   const cart = fakeCart;
   return (
-    <div className="px-4 py-3 md:px-10 ">
-      <div className="absolute -z-20 right-5 bottom-10">
+    <div className="px-4 py-3 md:px-10">
+      <div className="absolute bottom-10 right-5 -z-20">
         <img
           src={PizzaSlice}
           alt="pizza slice"
-          className="w-full mr-20 mt-20 hidden lg:block transform rotate-25"
+          className="rotate-25 mr-20 mt-20 hidden w-full transform lg:block"
         />
       </div>
       <LinkButton to={"/menu"}>&larr; Back to menu</LinkButton>
 
-      <h2 className="mt-7 text-xl font-semibold font-syne">
-        Your cart, %NAME%
+      <h2 className="mt-7 font-syne text-xl font-semibold">
+        Your cart, {username}
       </h2>
-      <ul className="divide-y divide-stone-200 border-b mt-3">
+      <ul className="mt-3 divide-y divide-stone-200 border-b">
         {cart.map((item) => (
           <CartItem key={item.pizzaId} item={item} />
         ))}
       </ul>
 
-      <div className="flex gap-4 mt-6 items-center">
+      <div className="mt-6 flex items-center gap-4">
         <Button to="/order/new">Order Pizzas</Button>
         <Button type="secondary">Clear cart</Button>
       </div>

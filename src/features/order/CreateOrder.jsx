@@ -3,11 +3,12 @@ import { createOrder } from "../../services/apiMenu";
 import Logo from "../../assets/StonePizza.svg";
 import Input from "../../ui/Input";
 import Button from "../../ui/Button";
+import { useSelector } from "react-redux";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
-    str
+    str,
   );
 
 const fakeCart = [
@@ -35,6 +36,7 @@ const fakeCart = [
 ];
 
 function CreateOrder() {
+  const username = useSelector((state) => state.user.username);
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const formErrors = useActionData();
@@ -43,36 +45,35 @@ function CreateOrder() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3">
-      <div className="mt-5 col-span-1 mx-auto">
-        <h2 className="font-bold font-syne text-2xl mb-7">Ready to order?</h2>
+      <div className="col-span-1 mx-auto mt-5">
+        <h2 className="mb-7 font-syne text-2xl font-bold">Ready to order?</h2>
 
         <Form method="POST" className="flex flex-col gap-6">
-          <div className="flex gap-4 text-sm items-center">
+          <div className="flex items-center gap-4 text-sm">
             <label>FIRST NAME</label>
-            <Input type={"text"} name={"customer"} />
+            <Input type={"text"} name={"customer"} defaultValue={username} />
           </div>
 
-          <div className="flex gap-4 text-sm items-center">
+          <div className="flex items-center gap-4 text-sm">
             <label>PHONE NUMBER</label>
             <div>
               <Input type={"tel"} name="phone" />
             </div>
           </div>
           {formErrors?.phone && <p className="text-sm">* {formErrors.phone}</p>}
-          <div className="flex gap-4 text-sm items-center">
+          <div className="flex items-center gap-4 text-sm">
             <label>ADDRESS</label>
             <div>
               <Input type={"text"} name={"address"} />
             </div>
           </div>
 
-          <div className="flex gap-4 text-md items-center">
+          <div className="text-md flex items-center gap-4">
             <input
               type="checkbox"
               name="priority"
               id="priority"
-              className="w-6 h-6 accent-[#373c4b] transition-all
-              duration-300 focus:outline-none focus:ring focus:ring-[#494f62]"
+              className="h-6 w-6 accent-[#373c4b] transition-all duration-300 focus:outline-none focus:ring focus:ring-[#494f62]"
               // value={withPriority}
               // onChange={(e) => setWithPriority(e.target.checked)}
             />
@@ -89,7 +90,7 @@ function CreateOrder() {
       <img
         src={Logo}
         alt="Logo"
-        className="w-full h-full p-10 col-span-2 object-contain mx-auto hidden md:block"
+        className="col-span-2 mx-auto hidden h-full w-full object-contain p-10 md:block"
       />
     </div>
   );
