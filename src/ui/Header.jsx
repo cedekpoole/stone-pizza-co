@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import SearchOrder from "../features/order/SearchOrder";
 import Logo from "../assets/StonePizza.svg";
+import Username from "../features/user/Username";
 
 function Header() {
   return (
@@ -10,7 +11,7 @@ function Header() {
       </Link>
       <div className="flex items-center gap-4">
         <SearchOrder />
-        <p className="hidden font-syne text-sm sm:block">CEDEKPOOLE</p>
+        <Username />
       </div>
     </header>
   );
