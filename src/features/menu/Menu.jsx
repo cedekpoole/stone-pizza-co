@@ -6,11 +6,16 @@ function Menu() {
   const menu = useLoaderData();
 
   return (
-    <ul className="grid grid-cols-1 lg:grid-cols-2 m-10 lg:m-0 gap-4">
-      {menu.map((pizza) => (
-        <MenuItem key={pizza.id} pizza={pizza} />
-      ))}
-    </ul>
+    <div>
+      <h1 className="text-center font-syne text-2xl font-semibold uppercase">
+        Menu
+      </h1>
+      <ul className="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-2">
+        {menu.map((pizza) => (
+          <MenuItem key={pizza.id} pizza={pizza} />
+        ))}
+      </ul>
+    </div>
   );
 }
 

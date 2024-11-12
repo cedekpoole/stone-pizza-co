@@ -4,35 +4,35 @@ const MenuItem = ({ pizza }) => {
   const { name, unitPrice: price, ingredients, soldOut, imageUrl } = pizza;
 
   return (
-    <div className="max-h-44 relative bg-[#3a3f50] text-[#f1f1f1] rounded-lg shadow-lg overflow-hidden grid grid-cols-2 gap-4 transition-transform transform hover:scale-105">
+    <div className="relative grid max-h-52 transform grid-cols-2 gap-4 overflow-hidden rounded-lg bg-[#3a3f50] text-[#f1f1f1] shadow-lg transition-transform hover:scale-105">
       {/* Pizza Image */}
       <div className={`h-full ${soldOut ? "opacity-50" : ""}`}>
         <img
           src={imageUrl}
           alt={name}
-          className="w-full h-full object-cover rounded-l-lg"
+          className="h-full w-full rounded-l-lg object-cover"
         />
       </div>
 
       {/* Content */}
-      <div className="p-2 md:p-6 space-y-4">
+      <div className="space-y-4 p-2 md:p-6">
         {/* Pizza Name */}
-        <h2 className="text-lg md:text-xl font-bold font-syne">{name}</h2>
+        <h2 className="font-syne text-lg font-bold md:text-xl">{name}</h2>
 
         {/* Ingredients */}
-        <p className="text-gray-400 text-sm">{ingredients.join(", ")}</p>
+        <p className="text-sm text-gray-400">{ingredients.join(", ")}</p>
 
         {/* Price and Button */}
         <div className="flex items-center justify-between">
           <span
-            className={`text-md md:text-2xl font-bold ${
+            className={`text-md font-bold md:text-2xl ${
               soldOut ? "text-gray-500 line-through" : "text-green-400"
             }`}
           >
             £{price.toFixed(2)}
           </span>
           {!soldOut && (
-            <button className="bg-green-500 hover:bg-green-600 text-white text-sm px-2.5 py-1.5 md:px-4 md:py-2 rounded-md">
+            <button className="rounded-md bg-green-500 px-2.5 py-1.5 text-sm text-white hover:bg-green-600 md:px-4 md:py-2">
               Add to Cart
             </button>
           )}
@@ -41,7 +41,7 @@ const MenuItem = ({ pizza }) => {
 
       {/* Sold Out Badge */}
       {soldOut && (
-        <div className="absolute top-2 right-2 bg-red-600 text-sm font-semibold px-3 py-1 rounded-md">
+        <div className="absolute right-2 top-2 rounded-md bg-red-600 px-3 py-1 text-sm font-semibold">
           Sold Out
         </div>
       )}
