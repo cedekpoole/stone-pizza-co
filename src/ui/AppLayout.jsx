@@ -12,7 +12,7 @@ function AppLayout() {
     <div className="min-h-[calc(100vh-4rem)] font-inter">
       <Header />
       {isLoading ? (
-        <Loader fullscreen={true} />
+        <Loader />
       ) : (
         <main className="container mx-auto">
           <Outlet />

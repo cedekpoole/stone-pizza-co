@@ -1,17 +1,9 @@
-import PropTypes from "prop-types";
-
-Loader.propTypes = {
-  fullScreen: PropTypes.bool,
-};
-
-export default function Loader({ fullScreen = false }) {
+export default function Loader() {
   return (
-    <div
-      className={`flex justify-center items-center ${
-        fullScreen ? `min-h-screen` : ""
-      }`}
-    >
-      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-slate-500"></div>
+    <div>
+      <div className="absolute inset-0 bg-[#494f62]/30 backdrop-blur-sm flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-slate-400"></div>
+      </div>
     </div>
   );
 }
