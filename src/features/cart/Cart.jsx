@@ -30,15 +30,11 @@ function Cart() {
   const cart = fakeCart;
   return (
     <div className="px-4 py-3 md:px-10 ">
-      {/* <div className="relative">
-        <div className="before:absolute before:content-pizzaslice before:-z-20">
-        </div>
-      </div> */}
-      <div className="absolute -z-20 inset-0 flex items-center justify-end">
+      <div className="absolute -z-20 right-5 bottom-10">
         <img
           src={PizzaSlice}
           alt="pizza slice"
-          className="w-1/3 mr-20 mt-20 hidden lg:block"
+          className="w-full mr-20 mt-20 hidden lg:block transform rotate-25"
         />
       </div>
       <LinkButton to={"/menu"}>&larr; Back to menu</LinkButton>
@@ -52,9 +48,9 @@ function Cart() {
         ))}
       </ul>
 
-      <div className="flex gap-4 mt-6">
+      <div className="flex gap-4 mt-6 items-center">
         <Button to="/order/new">Order Pizzas</Button>
-        <button>Clear cart</button>
+        <Button type="secondary">Clear cart</Button>
       </div>
     </div>
   );
