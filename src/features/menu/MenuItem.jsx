@@ -52,7 +52,7 @@ const MenuItem = ({ pizza }) => {
           >
             £{price.toFixed(2)}
           </span>
-          <div className="flex gap-3 md:gap-8">
+          <div className="mb-1 mr-1 flex gap-3 md:gap-8">
             {isInCart && (
               <UpdateItemQuantity pizzaId={id} currentQuantity={currQuantity} />
             )}
@@ -71,7 +71,7 @@ const MenuItem = ({ pizza }) => {
 
       {/* Sold Out Badge */}
       {soldOut && (
-        <div className="absolute right-0 top-3 rounded-md bg-red-600 px-3 py-1 font-syne text-sm font-semibold uppercase tracking-wide">
+        <div className="absolute right-1 top-3 rounded-md bg-red-600 px-3 py-1 font-syne text-sm font-semibold uppercase tracking-wide">
           Sold Out
         </div>
       )}
