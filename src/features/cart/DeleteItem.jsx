@@ -4,7 +4,7 @@ import { deleteItem } from "./cartSlice";
 import PropTypes from "prop-types";
 
 DeleteItem.propTypes = {
-  pizzaId: PropTypes.string.isRequired,
+  pizzaId: PropTypes.number.isRequired,
 };
 
 function DeleteItem({ pizzaId }) {

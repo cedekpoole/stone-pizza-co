@@ -4,7 +4,7 @@ import DeleteItem from "./DeleteItem";
 
 CartItem.propTypes = {
   item: PropTypes.shape({
-    pizzaId: PropTypes.string.isRequired,
+    pizzaId: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
     totalPrice: PropTypes.number.isRequired,

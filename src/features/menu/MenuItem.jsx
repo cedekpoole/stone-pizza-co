@@ -1,10 +1,14 @@
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
-import { addItem } from "../cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, getCartQuantityById } from "../cart/cartSlice";
+import DeleteItem from "../cart/DeleteItem";
 
 const MenuItem = ({ pizza }) => {
   const { id, name, unitPrice: price, ingredients, soldOut, imageUrl } = pizza;
   const dispatch = useDispatch();
+  const currQuantity = useSelector(getCartQuantityById(id));
+
+  const isInCart = currQuantity > 0;
 
   function handleAddToCart() {
     const newItem = {
@@ -47,14 +51,17 @@ const MenuItem = ({ pizza }) => {
           >
             £{price.toFixed(2)}
           </span>
-          {!soldOut && (
-            <button
-              onClick={handleAddToCart}
-              className="rounded-md bg-green-500 px-2.5 py-1.5 font-syne text-sm font-medium uppercase tracking-wide text-white hover:bg-green-600 focus:animate-bounce md:px-4 md:py-2"
-            >
-              Add to Cart
-            </button>
-          )}
+          <div className="flex gap-4">
+            {isInCart && <DeleteItem pizzaId={id} />}
+            {!soldOut && (
+              <button
+                onClick={handleAddToCart}
+                className="rounded-md bg-green-500 px-2.5 py-1.5 font-syne text-sm font-medium uppercase tracking-wide text-white hover:bg-green-600 focus:animate-bounce md:px-4 md:py-2"
+              >
+                Add to Cart
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -62,6 +69,11 @@ const MenuItem = ({ pizza }) => {
       {soldOut && (
         <div className="absolute right-0 top-3 rounded-md bg-red-600 px-3 py-1 font-syne text-sm font-semibold uppercase tracking-wide">
           Sold Out
+        </div>
+      )}
+      {isInCart && (
+        <div className="absolute bottom-3 right-0 rounded-md bg-green-600 px-3 py-1 font-syne text-sm font-semibold uppercase tracking-wide">
+          x{currQuantity}
         </div>
       )}
     </div>
