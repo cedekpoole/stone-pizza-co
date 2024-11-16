@@ -1,6 +1,6 @@
-import Button from "../../ui/Button";
 import { formatCurrency } from "../../utils/helpers";
 import PropTypes from "prop-types";
+import DeleteItem from "./DeleteItem";
 
 CartItem.propTypes = {
   item: PropTypes.shape({
@@ -20,10 +20,10 @@ function CartItem({ item }) {
         {quantity}&times; {name}
       </p>
       <div className="flex items-center justify-between sm:gap-6">
-        <p className="text-sm font-bold text-green-300 ">
+        <p className="text-sm font-bold text-green-300">
           {formatCurrency(totalPrice)}
         </p>
-        <Button type={"dark"}>Remove</Button>
+        <DeleteItem pizzaId={pizzaId} />
       </div>
     </li>
   );
