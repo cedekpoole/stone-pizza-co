@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, getCartQuantityById } from "../cart/cartSlice";
 import DeleteItem from "../cart/DeleteItem";
+import UpdateItemQuantity from "../cart/UpdateItemQuantity";
 
 const MenuItem = ({ pizza }) => {
   const { id, name, unitPrice: price, ingredients, soldOut, imageUrl } = pizza;
@@ -51,12 +52,15 @@ const MenuItem = ({ pizza }) => {
           >
             £{price.toFixed(2)}
           </span>
-          <div className="flex gap-4">
+          <div className="flex gap-3 md:gap-8">
+            {isInCart && (
+              <UpdateItemQuantity pizzaId={id} currentQuantity={currQuantity} />
+            )}
             {isInCart && <DeleteItem pizzaId={id} />}
-            {!soldOut && (
+            {!soldOut && !isInCart && (
               <button
                 onClick={handleAddToCart}
-                className="rounded-md bg-green-500 px-2.5 py-1.5 font-syne text-sm font-medium uppercase tracking-wide text-white hover:bg-green-600 focus:animate-bounce md:px-4 md:py-2"
+                className="rounded-md bg-green-500 px-2.5 py-1.5 font-syne text-sm font-medium uppercase tracking-wide text-white hover:bg-green-600 md:px-4 md:py-2"
               >
                 Add to Cart
               </button>
@@ -69,11 +73,6 @@ const MenuItem = ({ pizza }) => {
       {soldOut && (
         <div className="absolute right-0 top-3 rounded-md bg-red-600 px-3 py-1 font-syne text-sm font-semibold uppercase tracking-wide">
           Sold Out
-        </div>
-      )}
-      {isInCart && (
-        <div className="absolute bottom-3 right-0 rounded-md bg-green-600 px-3 py-1 font-syne text-sm font-semibold uppercase tracking-wide">
-          x{currQuantity}
         </div>
       )}
     </div>
