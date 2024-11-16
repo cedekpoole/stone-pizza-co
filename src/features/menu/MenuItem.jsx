@@ -60,7 +60,7 @@ const MenuItem = ({ pizza }) => {
 
       {/* Sold Out Badge */}
       {soldOut && (
-        <div className="absolute bottom-0 right-0 rounded-md bg-red-600 px-3 py-1 font-syne text-sm font-semibold uppercase tracking-wide">
+        <div className="absolute right-0 top-3 rounded-md bg-red-600 px-3 py-1 font-syne text-sm font-semibold uppercase tracking-wide">
           Sold Out
         </div>
       )}
