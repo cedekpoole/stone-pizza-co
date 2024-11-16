@@ -5,11 +5,14 @@ import PizzaSlice from "../../assets/pizzaslice.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsername } from "../user/userSlice";
 import { clearCart, getCart } from "./cartSlice";
+import EmptyCart from "./EmptyCart";
 
 function Cart() {
   const username = useSelector(getUsername);
   const cart = useSelector(getCart);
   const dispatch = useDispatch();
+
+  if (cart.length === 0) return <EmptyCart />;
 
   return (
     <div className="px-4 py-3 md:px-10">
