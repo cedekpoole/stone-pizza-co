@@ -26,6 +26,7 @@ function CreateOrder() {
     status: addressStatus,
     position,
     address,
+    error: errorAddress,
   } = useSelector((state) => state.user);
 
   const isLoadingAddress = addressStatus === "loading";
@@ -56,7 +57,9 @@ function CreateOrder() {
             <label className="sm:basis-30">PHONE NUMBER</label>
             <Input type={"tel"} name="phone" />
           </div>
-          {formErrors?.phone && <p className="text-sm">* {formErrors.phone}</p>}
+          {formErrors?.phone && (
+            <p className="text-sm text-red-400">* {formErrors.phone}</p>
+          )}
           <div className="flex flex-col gap-2 text-sm sm:flex-row sm:items-center">
             <label className="sm:basis-30">ADDRESS</label>
             <Input
@@ -79,6 +82,9 @@ function CreateOrder() {
               </Button>
             )}
           </div>
+          {addressStatus === "error" && (
+            <p className="text-sm text-red-400">* {errorAddress}</p>
+          )}
 
           <div className="text-md flex items-center gap-4">
             <input
@@ -92,8 +98,17 @@ function CreateOrder() {
             <label htmlFor="priority">Want to give your order priority?</label>
           </div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
+          <input
+            type="hidden"
+            name="position"
+            value={
+              position.longitude && position.latitude
+                ? `${position.latitude},${position.longitude}`
+                : ""
+            }
+          />
           <div>
-            <Button disabled={isSubmitting}>
+            <Button disabled={isSubmitting || isLoadingAddress}>
               {isSubmitting
                 ? "Submitting..."
                 : `Order for ${formatCurrency(totalPrice)}`}
