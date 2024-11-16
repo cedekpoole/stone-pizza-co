@@ -5,6 +5,8 @@ import Input from "../../ui/Input";
 import Button from "../../ui/Button";
 import { useSelector } from "react-redux";
 import { getUsername } from "../user/userSlice";
+import { getCart } from "../cart/cartSlice";
+import EmptyCart from "../cart/EmptyCart";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -12,37 +14,15 @@ const isValidPhone = (str) =>
     str,
   );
 
-const fakeCart = [
-  {
-    pizzaId: 12,
-    name: "Mediterranean",
-    quantity: 2,
-    unitPrice: 16,
-    totalPrice: 32,
-  },
-  {
-    pizzaId: 6,
-    name: "Vegetale",
-    quantity: 1,
-    unitPrice: 13,
-    totalPrice: 13,
-  },
-  {
-    pizzaId: 11,
-    name: "Spinach and Mushroom",
-    quantity: 1,
-    unitPrice: 15,
-    totalPrice: 15,
-  },
-];
-
 function CreateOrder() {
+  const cart = useSelector(getCart);
   const username = useSelector(getUsername);
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const formErrors = useActionData();
   // const [withPriority, setWithPriority] = useState(false);
-  const cart = fakeCart;
+
+  if (cart.length === 0) return <EmptyCart />;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3">

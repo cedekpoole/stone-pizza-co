@@ -54,7 +54,7 @@ function Order() {
       </div>
       <ul className="divide-y divide-stone-200 border-b border-t">
         {cart.map((item) => (
-          <OrderItem key={item.id} item={item} />
+          <OrderItem key={item.pizzaId} item={item} />
         ))}
       </ul>
       <div className="space-y-2">
@@ -78,7 +78,6 @@ function Order() {
 }
 
 export async function loader({ params }) {
-  console.log(params);
   const { orderId } = params;
   const order = await getOrder(orderId);
   return order;
